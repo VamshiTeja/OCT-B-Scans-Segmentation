@@ -1,0 +1,9 @@
+numpy
+tensorflow
+pickle
+matplotlib
+opencv
+sklearn
+xgboost
+scipy
+

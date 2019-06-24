@@ -43,24 +43,21 @@ Then you can simply run main.py! Check out the optional command line arguments:
 ```bash
 python main.py [-h] [--num_epochs NUM_EPOCHS]
 		[--mode MODE]
-                [--checkpoint_step CHECKPOINT_STEP]
-                [--validation_step VALIDATION_STEP] [--image IMAGE]
+                [--image IMAGE][--class_balancing CLASS_BALANCING]
                 [--continue_training CONTINUE_TRAINING] [--dataset DATASET]
                 [--crop_height CROP_HEIGHT] [--crop_width CROP_WIDTH]
                 [--batch_size BATCH_SIZE] [--num_val_images NUM_VAL_IMAGES]
                 [--h_flip H_FLIP] [--v_flip V_FLIP] [--brightness BRIGHTNESS]
-                [--rotation ROTATION] [--model MODEL] [--frontend FRONTEND]
+                [--rotation ROTATION] [--model MODEL]
 
 optional arguments:
   -h, --help            show this help message and exit
   --num_epochs NUM_EPOCHS
                         Number of epochs to train for
-  --checkpoint_step CHECKPOINT_STEP
-                        How often to save checkpoints (epochs)
-  --validation_step VALIDATION_STEP
-                        How often to perform validation (epochs)
   --image IMAGE         The image you want to predict on. Only valid in
                         "predict" mode.
+  --class_balancing CLASS_BALANCING
+			Whether to use median frequency class weights to balance the classes in the loss
   --continue_training CONTINUE_TRAINING
                         Whether to continue training from a checkpoint
   --dataset DATASET     Dataset you are using.
