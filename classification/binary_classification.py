@@ -250,46 +250,46 @@ roc_auc1 = auc(fpr1, tpr1)
 
 
 ######################### XGBoost ###########################
-# X_train, y_train = np.array(images), np.array(class_labels)
-#
-# model = XGBClassifier(max_depth=8,seed=7)
-# kfold = StratifiedKFold(n_splits=5, random_state=42)
-#
-# Finalconf_mat_avg, conf_mat_var, accuracy_avg, accuracy_var, mean_fpr2, mean_tpr2, tprs_lower2, tprs_upper2, mean_auc2, std_auc2 = Classify(X_train, y_train, kfold, model, "XGBoost")
-#
-# xgboost_results = [Finalconf_mat_avg, conf_mat_var, accuracy_avg, accuracy_var, mean_fpr2, mean_tpr2, tprs_lower2, tprs_upper2, mean_auc2, std_auc2]
-#
-# xgboost_dict = {"tpr": mean_tpr2, "fpr": mean_fpr2, "auc":mean_auc2, "auc_std":std_auc2 }
-#
-# np.save("xgboost_dict", xgboost_dict)
-# scores = {'accuracy': 'accuracy', 'precision': 'precision', 'recall': 'recall', 'f1':'f1'}
-# results = cross_validate(model, X_train, y_train, scoring=scores, cv=kfold)
-#
-# test_accuracies = results['test_accuracy']
-# test_f1 = results['test_f1']
-# test_recall = results['test_recall']
-# test_precision = results['test_precision']
-#
-# print("Mean Test Accuracy: %.5f, STD of Accuracy: %.5f"%(np.mean(test_accuracies),np.std(test_accuracies)))
-# print("Mean Test Precision: %.5f, Mean Test Recall: %.5f "%(np.mean(test_precision), np.std(test_precision)))
-# print("Mean Test Recall: %.5f, STD of Recall: %.5f "%(np.mean(test_recall), np.std(test_recall)))
-# print("Mean Test F1 score: %.5f, STD of F1 score: %.5f"%(np.mean(test_f1), np.std(test_f1)))
-#
-# X_train,X_test,y_train, y_test = train_test_split(np.array(images),np.array(class_labels),test_size=0.8,random_state=42)
-#
-# model.fit(np.array(X_train), np.array(y_train))
-# y_pred = model.predict(np.array(X_test))
-#
-# predictions = [round(value) for value in y_pred]
-# accuracy = accuracy_score(y_test, predictions)
-# print("Accuracy: %.2f%%" % (accuracy * 100.0))
-# #classification_report = classification_report(y_test, predictions)
-# #print("Classification Report")
-# conf_matrix = confusion_matrix(y_test, predictions)
-# print("Confusion Matrix")
-# print(conf_matrix)
-#
-# y_pred_prob = model.predict_proba(X_test)
+X_train, y_train = np.array(images), np.array(class_labels)
+
+model = XGBClassifier(max_depth=8,seed=7)
+kfold = StratifiedKFold(n_splits=5, random_state=42)
+
+Finalconf_mat_avg, conf_mat_var, accuracy_avg, accuracy_var, mean_fpr2, mean_tpr2, tprs_lower2, tprs_upper2, mean_auc2, std_auc2 = Classify(X_train, y_train, kfold, model, "XGBoost")
+
+xgboost_results = [Finalconf_mat_avg, conf_mat_var, accuracy_avg, accuracy_var, mean_fpr2, mean_tpr2, tprs_lower2, tprs_upper2, mean_auc2, std_auc2]
+
+xgboost_dict = {"tpr": mean_tpr2, "fpr": mean_fpr2, "auc":mean_auc2, "auc_std":std_auc2 }
+
+np.save("xgboost_dict", xgboost_dict)
+scores = {'accuracy': 'accuracy', 'precision': 'precision', 'recall': 'recall', 'f1':'f1'}
+results = cross_validate(model, X_train, y_train, scoring=scores, cv=kfold)
+
+test_accuracies = results['test_accuracy']
+test_f1 = results['test_f1']
+test_recall = results['test_recall']
+test_precision = results['test_precision']
+
+print("Mean Test Accuracy: %.5f, STD of Accuracy: %.5f"%(np.mean(test_accuracies),np.std(test_accuracies)))
+print("Mean Test Precision: %.5f, Mean Test Recall: %.5f "%(np.mean(test_precision), np.std(test_precision)))
+print("Mean Test Recall: %.5f, STD of Recall: %.5f "%(np.mean(test_recall), np.std(test_recall)))
+print("Mean Test F1 score: %.5f, STD of F1 score: %.5f"%(np.mean(test_f1), np.std(test_f1)))
+
+X_train,X_test,y_train, y_test = train_test_split(np.array(images),np.array(class_labels),test_size=0.8,random_state=42)
+
+model.fit(np.array(X_train), np.array(y_train))
+y_pred = model.predict(np.array(X_test))
+
+predictions = [round(value) for value in y_pred]
+accuracy = accuracy_score(y_test, predictions)
+print("Accuracy: %.2f%%" % (accuracy * 100.0))
+#classification_report = classification_report(y_test, predictions)
+#print("Classification Report")
+conf_matrix = confusion_matrix(y_test, predictions)
+print("Confusion Matrix")
+print(conf_matrix)
+
+y_pred_prob = model.predict_proba(X_test)
 
 import matplotlib
 matplotlib.rcParams['font.family'] = ['serif']
