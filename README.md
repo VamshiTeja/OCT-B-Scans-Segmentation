@@ -92,3 +92,7 @@ Thanks to [GeorgeSeif](https://github.com/GeorgeSeif/Semantic-Segmentation-Suite
 
 ### Citation
 
+```bash
+Vamshi Teja Racha, Shanmukh Reddy Manne, Abhilash Goud Marupally, Abdul Rasheed Mohammed, Kunal Dansingani, Jay Chhablani, Kiran Kumar Vupparaboina, Soumya Jana. “Classification and Quantification of Retinal Cysts in OCT B-Scans: Efficacy of Machine Learning Methods, (1184)”, 41st Annual International Conference of the IEEE Engineering in Medicine & Biology Society (EMBS), 23-27 July 2019, Berlin, Germany.
+```
+
